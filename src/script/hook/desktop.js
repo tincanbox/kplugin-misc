@@ -1,12 +1,18 @@
+import SharedLib from '../lib/shared.js';
+
 (function(k, factory) {
   'use strict';
 
-  factory(new Kluginn.default());
+  factory(new Kluginn.default(), {
+    plugin: "kplugin-misc"
+  });
 
-})(kintone, function(p){
+})(kintone, function(p, Info){
 
   var K = p;
   var $ = K.$;
+
+  var Shared = new SharedLib();
 
   var C = {
   };
@@ -142,11 +148,25 @@
    */
 
   function main(){
+    var checking = false;
+    if(!S.config.json.table){
+      K.dialog({
+        title: Info.plugin,
+        html: '<section class="text-left">'
+          + "kplugin-misc is not initialized. "
+          + "Please access config page and Save the loaded default settings. "
+          + '</section>'
+      });
+    }else{
+      console.log("saved?", S);
+    }
+
     return Promise.all([
       K.api.fetch('app/form/fields')
         .then(function(p){
           S.properties = p.properties;
-        })
+        }),
+      checking
     ]);
   }
 

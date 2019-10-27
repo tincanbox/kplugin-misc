@@ -1,3 +1,5 @@
+import SharedLib from '../lib/shared.js';
+
 (function(k, factory) {
   'use strict';
 
@@ -7,6 +9,8 @@
 
   var K = p;
   var $ = K.$;
+
+  var Shared = new SharedLib();
 
   // "C"onfig
   var C = {
@@ -160,7 +164,7 @@
   /* Builds config table and replace S.table prop.
    */
   function build_table(){
-    var d = default_data();
+    var d = Shared.default_data();
     if(S.config.json.table){
       for(var a of S.config.json.table){
         for(var ad of d){
@@ -201,30 +205,6 @@
        */
       height: 360
     });
-  }
-
-  function default_data(){
-    return [
-      {
-        name: "link_clickable",
-        toggle: "on",
-        value: "",
-        desc: "Forces 'Link' field to be clickable."
-
-      },
-      {
-        name: "auto_lookup_init",
-        toggle: "off",
-        value: "",
-        desc: "Automatically initialize Lookup when edit"
-      },
-      {
-        name: "focus_error_input",
-        toggle: "on",
-        value: "",
-        desc: "Scrolls to error input when click global error."
-      }
-    ];
   }
 
 });
