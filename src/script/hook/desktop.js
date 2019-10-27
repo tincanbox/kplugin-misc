@@ -82,10 +82,9 @@
       opt: {
       },
       run: function(config, ename, e){
-        console.log($('.notifier-error-cybozu'));
         $("html head").append('<style type="text/css">'
           + '.notifier-error-cybozu {cursor: pointer;}'
-          + '.notifier-error-cybozu .notifier-body-cybozu:before {content: "Click here and see matched Error."}'
+          + '.notifier-error-cybozu .notifier-body-cybozu:before {content: "🖱️ Click here and check a first Error."}'
           + '</style>');
         return e;
        },
@@ -132,7 +131,6 @@
   ].map(function(cnr){
     var ename = cnr[0];
     var clb = cnr[1];
-    console.log("kplugin-misc", "binding kintone events");
     K.$k.events.on(ename, function(e){
       return clb(ename, e);
     });

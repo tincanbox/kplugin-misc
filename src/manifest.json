@@ -7,7 +7,7 @@
     "en": "kplugin-misc"
   },
   "description": {
-    "en": "kplugin-misc"
+    "en": "kplugin-misc: This plugin includes bundled tiny features like changes just click behavior. All features are togglable within Configuration page."
   },
 
   "config": {
