@@ -43,13 +43,15 @@ import SharedLib from '../lib/shared.js';
         var sel = act.opt.sel;
         $(sel).each(function(){
           var el = $(this);
-          if(act.opt.match(el)){
-            el.find("*").css({ "cursor": "pointer" });
-          }
+          el.find("*").css({ "cursor": "pointer" });
         });
       },
       bind: function(config, ename, e){
         var act = A[config.name];
+        $('html head').append('<style>' + act.opt.sel + ':hover input {'
+          + 'border: 1px solid skyblue;'
+          + '}</style>');
+
         $(document).on('click', act.opt.sel + ' .control-value-gaia', function(){
           var hr = act.opt.match($(this));
           if(hr){
