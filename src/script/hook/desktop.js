@@ -25,7 +25,8 @@ import SharedLib from '../lib/shared.js';
   var A = {
     link_clickable: {
       on: [
-        'app.record.edit.show'
+        'app.record.create.show',
+        'app.record.edit.show',
       ],
       opt: {
         sel: '.control-link-field-gaia',
